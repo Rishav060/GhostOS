@@ -14,7 +14,8 @@ export async function readFileContent(filePath: string): Promise<string> {
     case ".pdf": {
       const buffer = fs.readFileSync(filePath);
       const data = await pdf(buffer);
-      return data.text;
+
+      return data.text.trim();
     }
 
     case ".docx": {
@@ -22,7 +23,7 @@ export async function readFileContent(filePath: string): Promise<string> {
         path: filePath,
       });
 
-      return result.value;
+      return result.value.trim();
     }
 
     default:

@@ -4,11 +4,14 @@ let extractor: any = null;
 
 async function getExtractor() {
   if (!extractor) {
+    console.log("Loading embedding model...");
     extractor = await pipeline(
       "feature-extraction",
       "Xenova/all-MiniLM-L6-v2"
     );
+    console.log("Embedding model loaded.");
   }
+
   return extractor;
 }
 

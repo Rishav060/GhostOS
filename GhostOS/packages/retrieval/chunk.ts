@@ -9,17 +9,23 @@ export function chunkText(
   file: string,
   page: number
 ): Chunk[] {
-  const words = text.split(/\s+/);
-  const chunks: Chunk[] = [];
+  const words = text.trim().split(/\s+/);
 
+  if (words.length === 0) {
+    return [];
+  }
+
+  const chunks: Chunk[] = [];
   let start = 0;
 
   while (start < words.length) {
     const end = Math.min(start + CHUNK_SIZE, words.length);
 
+    const chunkText = words.slice(start, end).join(" ");
+
     chunks.push({
       id: uuidv4(),
-      text: words.slice(start, end).join(" "),
+      text: chunkText,
       file,
       page,
     });

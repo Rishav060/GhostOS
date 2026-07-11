@@ -2,15 +2,21 @@ import { getIndex } from "./index";
 import { generateEmbedding } from "./embedding";
 import { SearchResult } from "./types";
 
-function cosineSimilarity(a: number[], b: number[]) {
+function cosineSimilarity(a: number[], b: number[]): number {
   let dot = 0;
   let normA = 0;
   let normB = 0;
 
-  for (let i = 0; i < a.length; i++) {
+  const length = Math.min(a.length, b.length);
+
+  for (let i = 0; i < length; i++) {
     dot += a[i] * b[i];
     normA += a[i] * a[i];
     normB += b[i] * b[i];
+  }
+
+  if (normA === 0 || normB === 0) {
+    return 0;
   }
 
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
@@ -18,14 +24,21 @@ function cosineSimilarity(a: number[], b: number[]) {
 
 export async function retrieve(
   query: string,
-  topK = 5
+  topK: number = 5
 ): Promise<SearchResult[]> {
   const queryEmbedding = await generateEmbedding(query);
 
   const index = getIndex();
 
-  const results = index.map((chunk) => ({
-    ...chunk,
+  const results: SearchResult[] = index.map((chunk) => ({
+    id: chunk.id,
+    file: chunk.file,
+    page: chunk.page,
+    text: chunk.text,
+    preview:
+      chunk.text.length > 150
+        ? chunk.text.substring(0, 150) + "..."
+        : chunk.text,
     score: cosineSimilarity(queryEmbedding, chunk.embedding),
   }));
 

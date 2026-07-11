@@ -15,17 +15,21 @@ export async function buildIndex(folderPath: string) {
   for (const file of files) {
     const filePath = path.join(folderPath, file);
 
-    const text = await readFileContent(filePath);
+    try {
+      const text = await readFileContent(filePath);
 
-    const chunks = chunkText(text, file, 1);
+      const chunks = chunkText(text, file, 1);
 
-    for (const chunk of chunks) {
-      const embedding = await generateEmbedding(chunk.text);
+      for (const chunk of chunks) {
+        const embedding = await generateEmbedding(chunk.text);
 
-      index.push({
-        ...chunk,
-        embedding,
-      });
+        index.push({
+          ...chunk,
+          embedding,
+        });
+      }
+    } catch (error) {
+      console.log(`Skipping unsupported file: ${file}`);
     }
   }
 
@@ -36,10 +40,3 @@ export function getIndex() {
   return index;
 }
 
-(async () => {
-  await buildIndex("./sample-data");
-
-  const results = await retrieve("Where is my internship offer?");
-
-  console.log(results);
-})();

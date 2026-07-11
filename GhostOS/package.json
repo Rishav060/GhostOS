@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node packages/retrieval/index.ts",
+    "start": "ts-node packages/retrieval/demo.ts",
     "build": "tsc"
   },
   "keywords": [],
@@ -13,13 +13,14 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.1.1",
+    "@types/pdf-parse": "^1.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",
     "mammoth": "^1.12.0",
-    "pdf-parse": "^2.4.5",
+    "pdf-parse": "^1.1.1",
     "uuid": "^14.0.1"
   }
 }

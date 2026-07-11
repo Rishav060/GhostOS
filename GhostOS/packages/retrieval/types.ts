@@ -9,6 +9,11 @@ export interface EmbeddedChunk extends Chunk {
   embedding: number[];
 }
 
-export interface SearchResult extends Chunk {
+export interface SearchResult {
+  id: string;
+  file: string;
+  page: number;
   score: number;
+  text: string;
+  preview: string;
 }
