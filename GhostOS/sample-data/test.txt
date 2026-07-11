@@ -1,9 +1,11 @@
-Hello, my name is Rishav Raj.
+GhostOS is an open-source AI operating system designed to help users interact with documents intelligently.
 
-I study at Jain University.
+The retrieval engine supports multiple document formats including TXT, Markdown, PDF, and DOCX.
 
-I have completed a Web Development Internship.
+Documents are split into smaller chunks before embeddings are generated using the Xenova all-MiniLM-L6-v2 model.
 
-I am preparing for Software Engineering placements.
+The generated embeddings are stored in an in-memory vector index.
 
-My favorite language is Java.
+When a user asks a question, the system generates an embedding for the query and retrieves the most relevant document chunks using cosine similarity.
+
+This retrieval pipeline provides context to the language model, improving the accuracy of responses.

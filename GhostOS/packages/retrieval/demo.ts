@@ -4,9 +4,9 @@ import { retrieve } from "./search";
 async function main() {
   await buildIndex("./sample-data");
 
-  const results = await retrieve(
-    "Where is my internship offer?"
-  );
+ const results = await retrieve(
+  "What document formats are supported?"
+);
 
   console.log(results);
 }
