@@ -1,0 +1,18 @@
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Hugging Face model cache
+.cache/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
