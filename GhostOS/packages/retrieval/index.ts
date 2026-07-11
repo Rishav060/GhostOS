@@ -4,6 +4,7 @@ import path from "path";
 import { chunkText } from "./chunk";
 import { generateEmbedding } from "./embedding";
 import { EmbeddedChunk } from "./types";
+import { retrieve } from "./search";
 
 const index: EmbeddedChunk[] = [];
 
@@ -36,4 +37,8 @@ export function getIndex() {
 
 (async () => {
   await buildIndex("./sample-data");
+
+  const results = await retrieve("Where is my internship offer?");
+
+  console.log(results);
 })();
