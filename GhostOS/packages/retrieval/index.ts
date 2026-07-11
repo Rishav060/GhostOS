@@ -5,6 +5,7 @@ import { chunkText } from "./chunk";
 import { generateEmbedding } from "./embedding";
 import { EmbeddedChunk } from "./types";
 import { retrieve } from "./search";
+import { readFileContent } from "./fileReader";
 
 const index: EmbeddedChunk[] = [];
 
@@ -14,7 +15,7 @@ export async function buildIndex(folderPath: string) {
   for (const file of files) {
     const filePath = path.join(folderPath, file);
 
-    const text = fs.readFileSync(filePath, "utf-8");
+    const text = await readFileContent(filePath);
 
     const chunks = chunkText(text, file, 1);
 
