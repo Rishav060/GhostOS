@@ -18,15 +18,10 @@ export async function askAI(
 
   const prompt = buildPrompt(question, chunks);
 
-
-console.log("========== PROMPT ==========");
-console.log(prompt);
-console.log("============================");
-
   const answer = await llm.generate(prompt);
 
-  return {
-    answer,
-    sources: [...new Set(chunks.map(chunk => chunk.file))],
-  };
+ return {
+    answer: answer.trim(),
+    sources: [...new Set(chunks.map(c => c.file))]
+};
 }

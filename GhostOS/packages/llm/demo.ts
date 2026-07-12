@@ -9,13 +9,10 @@ async function main() {
     // Step 1: Build the vector index
     await buildIndex("./sample-data");
 
-    const question = "What is my current CGPA?";
+    const question = "What is my salary?";
 
     // Step 2: Retrieve relevant chunks
     const chunks = await retrieve(question);
-
-    console.log("\n===== Retrieved Chunks =====");
-    console.log(chunks);
 
     // Step 3: Ask the LLM
     const response = await askAI(
