@@ -1,0 +1,20 @@
+John Doe
+
+Bachelor of Technology in Computer Science
+XYZ Institute of Technology
+
+Current CGPA: 9.42
+
+Skills:
+- Java
+- Python
+- C++
+- TypeScript
+- React
+- Node.js
+
+Email:
+johndoe@email.com
+
+Phone:
+9876543210

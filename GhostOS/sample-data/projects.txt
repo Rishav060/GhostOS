@@ -1,0 +1,13 @@
+Projects
+
+GhostOS
+Built an offline AI assistant using Ollama and Retrieval-Augmented Generation.
+
+Weather App
+Created using React and OpenWeather API.
+
+Expense Tracker
+Built using React, Express, and MongoDB.
+
+Smart Attendance System
+Used Python and OpenCV for facial recognition.
