@@ -9,7 +9,7 @@ async function main() {
     // Step 1: Build the vector index
     await buildIndex("./sample-data");
 
-    const question = "What is my salary?";
+    const question = "Which file has my resume?";
 
     // Step 2: Retrieve relevant chunks
     const chunks = await retrieve(question);
