@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  background: #0b1120;
+  color: white;
+}
+
+#root {
+  height: 100vh;
+}
+
+.app {
+  height: 100vh;
+}
+
+/* Dashboard */
+
+.dashboard {
+  display: flex;
+
+  height: 100vh;
+}
+
+/* Main Chat Area */
+
+.main-content {
+  flex: 1;
+
+  display: flex;
+
+  background: #111827;
+
+  padding: 25px;
+}
