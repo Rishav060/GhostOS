@@ -1,0 +1,16 @@
+Internship Experience
+
+Software Engineering Intern
+Microsoft
+
+Duration:
+May 2025 - July 2025
+
+Responsibilities:
+- Built backend REST APIs
+- Fixed frontend bugs
+- Worked with React and Node.js
+- Participated in Agile sprints
+
+Mentor:
+Sarah Johnson
