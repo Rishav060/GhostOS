@@ -1,10 +1,10 @@
 import "./Sidebar.css";
+
 import {
   Sparkles,
   BookOpen,
   GitCompare,
   FileText,
-  Settings,
   CheckCircle2,
 } from "lucide-react";
 
@@ -16,57 +16,68 @@ function Sidebar() {
       className="sidebar"
       initial={{ x: -80, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
     >
-      <div>
-        <div className="logo">
-          <h1>👻 GhostOS</h1>
+      {/* LOGO */}
 
-          <p>Your AI Document Assistant</p>
+      <div className="sidebar-top">
+        <h1>👻 GhostOS</h1>
+
+        <p>AI Document Assistant</p>
+      </div>
+
+      {/* STATISTICS */}
+
+      <div className="statistics">
+        <div className="indexed">
+          <CheckCircle2 size={18} />
+          Indexed Successfully
         </div>
 
-        <div className="section">
-          <h3>Status</h3>
-
-          <div className="status">
-            <CheckCircle2 size={18} color="#22c55e" />
-
-            <span>Indexed</span>
-          </div>
+        <div className="stat-card">
+          <h2>54</h2>
+          <p>Documents</p>
         </div>
 
-        <div className="section">
-          <h3>Documents</h3>
-
-          <div className="status">
-            <FileText size={18} />
-
-            <span>34 Files</span>
-          </div>
+        <div className="stat-card">
+          <h2>1234</h2>
+          <p>Pages</p>
         </div>
 
-        <div className="actions">
-          <button>
-            <Sparkles size={18} />
-            Summarize
-          </button>
-
-          <button>
-            <BookOpen size={18} />
-            Explain
-          </button>
-
-          <button>
-            <GitCompare size={18} />
-            Compare
-          </button>
+        <div className="stat-card">
+          <h2>54 MB</h2>
+          <p>Total Size</p>
         </div>
       </div>
 
-      <button className="settings">
-        <Settings size={18} />
-        Settings
-      </button>
+      {/* ACTION BUTTONS */}
+
+      <div className="actions">
+        <button>
+          <Sparkles size={18} />
+          Summarize
+        </button>
+
+        <button>
+          <BookOpen size={18} />
+          Explain
+        </button>
+
+        <button>
+          <GitCompare size={18} />
+          Compare Docs
+        </button>
+      </div>
+
+      {/* FOOTER */}
+
+      <div className="footer">
+        <FileText size={18} />
+
+        <p>GhostOS v1.0</p>
+
+        <span>Powered by AI</span>
+      </div>
     </motion.aside>
   );
 }

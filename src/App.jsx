@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./App.css";
 
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -12,7 +13,8 @@ function App() {
   const handleFolderSelect = () => {
     setIndexing(true);
 
-    // Later this will call the backend API
+    // Later this will become your API call
+
     setTimeout(() => {
       setIndexing(false);
       setScreen("chat");
